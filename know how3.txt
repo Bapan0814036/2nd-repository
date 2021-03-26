@@ -1,0 +1,17 @@
+def metacls(classname,baseclass,attrs):
+   nattrs={'mod'+key:attrs[key] for key in attrs}
+   return type(classname,baseclass,attrs)
+
+Mymeta=metacls
+
+class Kls(metaclass=Mymeta):
+   def setd(self,data):
+      self.data=data
+   def getd(self):
+      return self.data
+
+if __name__=="__main__":
+k=Kls()
+k.modsetd('arun')
+print(k.modgetd())
+

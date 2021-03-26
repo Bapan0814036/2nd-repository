@@ -1,0 +1,21 @@
+Method in python class:
+
+class Vector:
+   def __init__(self,x,y):
+      self.x=x
+      self.y=y
+   def set(self,x,y):
+      self.x=x
+      self.y=y
+   def __repr__(self):
+      return "{} is x and {} is y".format(self.x,self.y)
+def main():
+   v=Vector(2,3)
+   v.set(5,6)
+   print(v)
+
+if __name__=="__main__":
+   main()
+
+
+If something is not defined and used than "NameError" will come

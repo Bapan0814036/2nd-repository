@@ -1,0 +1,21 @@
+Metaclass:
+A metaclass defines type of other class.
+
+a=type('A',('object',),{})
+
+class B(type):
+   def __new__(cls,classname,baseclass,attrs):
+     return type.__new__(cls,classname,baseclass,attrs)
+   def __init__(self,classname,baseclass,attrs):
+     pass
+
+class C(metaclass=B):
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def __str__(self):
+       return "{} and {}".format(self.a,self.b)
+
+if __name__=="__main__":
+   c=C(1,2)
+   print(c)

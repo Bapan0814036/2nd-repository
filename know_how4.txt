@@ -1,0 +1,265 @@
+https://www.pythonforthelab.com/blog/how-to-use-decorators-part-2/
+
+Q.Write a decorator in python?
+def check_positive(func):
+   def func_wrapper(x,y):
+       if x<0 or y<0:
+          raise Exception("Both x and y are negative")
+       res=func(x,y)
+       return res
+   return func_wrapper
+
+@check_positive
+def average(x,y):
+   return (x+y)/2
+
+if __name__=="__main__":
+  average(2,3)
+
+
+Q.Write your own exception class?
+
+class A(Exception):
+   def __init__(self,name):
+      self.name=name
+   def __str__(self):
+      return "{} is the exception occured".format(self.name)
+
+if __name__=="__main__":
+   try:
+     raise A("Value error ")
+   except Exception as e:
+     print(e)
+
+
+Q.Write a class decorator?
+
+class A:
+   def __init__(self,a,b):
+      self.a=a
+      self.b=b
+   def __call__(self,func):
+      def wrapper(*args):
+         print("Executing1")
+         return func(*args)
+      return wrapper
+
+@A(2,3)
+def fun(*args):
+  for i in args:
+     print(i)
+
+if __name__=="__main__":
+   fun(1,2,3,4)
+
+Q.Write decorator using functools?
+
+from functools import wraps
+
+def decorator(func):
+   "decorator function"
+   @wraps(func)
+   def wrapper(*args):
+     print("Inside wrapper")
+     print("{}".format(fun.__name__))
+   return wrapper
+
+@decorator
+def fun(*args):
+  for i in args:
+      print(i)
+
+if __name__=="__main__":
+   fun(1,2,3,4,5)
+
+
+Q.Write a class having property setter and getter methods
+
+class A:
+   def __init__(self,a,b):
+      self.a=a
+      self.b=b
+   @property
+   def set_a(self):
+     return self.a
+   @set_a.setter
+   def set_a(self,a):
+       self.a=a
+   @property
+   def set_b(self):
+      return self.b
+   @set_b.setter
+   def set_b(self,b):
+      self.b=b
+
+if __name__=="__main__":
+   a=A(2,3)
+   print(a.__dict__)
+   print(a.set_a)
+   a.set_a=12
+   print(a.__dict__)
+   print(a.set_b)
+   a.set_b=24
+
+Q.Multilevel inheritance
+
+class A:
+  def __init__(self,a,b):
+     self.a=a
+     self.b=b
+  def __str__(self):
+    return "{} is a {} is b".format(self.a,self.b)
+
+class B:
+  def __init__(self,c,d):
+     self.c=c
+     self.d=d
+  def __str__(self):
+    return  "{} is c {} is d".format(self.c,self.d)
+
+class C:
+  def __init__(self,a,b,c,d,e):
+     A.__init__(self,a,b)
+     B.__init__(self,c,d)
+     self.e=e
+  def __str__(self):
+    return "{} is a {} is b {} is c {} is d {} is e".format(self.a,self.b,self.c,self.d,self.e)
+
+if __name__=="__main__":
+  m=C(1,2,3,4,5)
+  print(c)
+
+Q.Write __new__ function for a class
+
+class A:
+  def __new__(cls,*args,**kwargs):
+     print("new method executed")
+     l=object.__init__(cls)
+     return l
+  def __init__(self,a,b):
+     print("Init method executed")
+     self.a=a
+     self.b=b
+  def __str__(self):
+     return "{} is a {} is b".format(self.a,self.b)
+
+if __name__=="__main__":
+   a=A(1,2)
+   print(a)
+
+
+Q.Write a decorator for classes
+
+def fun(cls):
+   print('Decorating {}'.format(cls.__name__))
+   def wrapper(*args):
+     return cls(*args)
+   return wrapper
+
+@fun
+class A:
+  def __init__(self,a,b):
+     self.a=a
+     self.b=b
+  def func(self):
+     print(fun.__name__)
+  def __str__(self):
+     return "{} is a and {} is b".format(self.a,self.b)
+
+if __name__=="__main__":
+   a=fun(1,2)
+   print(a)
+   a.func()
+
+
+Adding a method to a particular class using a class decorator:
+
+def fun(cls):
+  def wrapper(*args):
+    def average(cls,x,y):
+       return (x+y)/2
+    setattr(cls,'average',average)
+    return cls(*args)
+  return wrapper
+
+@fun
+class A:
+  def __init__(self,a,b):
+     self.a=a
+     self.b=b
+  def __str__(self):
+     return "{} and {}".format(self.a,self.b)
+
+
+if __name__=="__main__":
+   a=A(2,3)
+   print(a)
+   print(a.average(4,6))
+
+1.Class will be passed as argument of decorator
+
+@decorate
+class Myclass
+
+Myclass=wrapper
+m=Wrapper(1,2)
+
+Classes as decorators:
+---------------------
+
+This is also example of class decorator.
+
+class A:
+  def __init__(self,func):
+     self.func=func
+  def __call__(self,*args):
+     return self.func(*args)
+
+@A
+def fun(*args):
+   for i in args:
+      print(i)
+
+fun=A(fun)
+fun(1,2,3)
+
+if __name__=="__main__":
+  fun(1,2,3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+    
+   
+
+

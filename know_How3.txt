@@ -1,0 +1,17 @@
+A class method is a class which is not bound to the object of the class but bound to the class.
+Class variable is shared by all the instances.
+
+
+class C(object):
+   @staticmethod
+   def fun(arg1,arg2,...):
+
+class D(object):
+   @classmethod
+   def fun(cls,arg1,arg2,..):
+
+classmethod,staticmethod.
+
+A staticmethod is also bound to the class and not the object of the class.
+
+

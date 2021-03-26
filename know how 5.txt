@@ -1,0 +1,87 @@
+Metaclass:
+
+A metaclass is a class which defines the type of other class.
+A metaclass can be a class,function,object that supports calling an interface.
+1.Class name 
+2.Base class
+3.Attributes
+
+The default metaclass for any class is type.
+
+class A(metaclass=type):
+   pass
+
+When a class is created:
+1.Get the name of the class.
+2.Get the base class of the class.
+3.Get the attributes of the class.
+4.Passes the information to metaclass.
+
+c=type('Exampleclass',(object,),{})
+
+
+type->call->new->init
+
+new method creates new object
+
+class A:
+  def __init__(self,data):
+     self.data=data
+  def getd3(self):
+     return self.data*3
+
+class Mymeta(type):
+  def __new__(metaname,classname,baseclass,attrs):
+     attrs['getdata']=A.__dict__['getd3']
+     return type.__new__(metaname,classname,baseclass,attrs)
+  def __init__(classobject,classname,baseclass,attrs):
+     pass
+
+class Kls(metaclass=Mymeta):
+   def __init__(self,data):
+      self.data=data
+   def printd(self):
+      print(self.data)
+if __name__=="__main__":
+   ik=Kls('Arun')
+   ik.printd()
+   print(ik.getdata())
+
+Normally only one method needs to be overridden __new__/__init__.
+
+def meta_func(name,bases,attrs):
+   nattrs={'mod'+key:attrs[key] for key in attrs}
+   return type(name,bases,nattrs)
+
+MyMeta=meta_func
+
+class Kls(metaclass=MyMeta):
+   def setd(self,data):
+      self.data=data
+   def getd(self):
+      return self.data
+
+k=Kls()
+k.modsetd('arun')
+print(k.modgetd())
+
+class Mymeta(type):
+   def __call__(clsname,*args):
+      instance=object.__new__(clsname)
+      instance.__init__(*args)
+      return instance
+
+class Kls(metaclass=Mymeta):
+   def __init__(self,data):
+       self.data=data
+   def printd(self):
+       print(self.data)
+
+ik=Kls('arun')
+ik.printd()
+
+
+
+
+
+

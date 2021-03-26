@@ -1,0 +1,40 @@
+Decorator with parameter in python:
+
+Function are first class objects in python.
+1.They can be passed as arguments to another function.
+2.They can be nested as well as i.e function within a function.
+3.They can be returned from a function.
+4.They can be stored in datastructures.
+
+@decorator(params)
+def fun():
+  do something
+
+this is equivalent to
+
+fun=decorator(params)(fun)
+
+
+def decorator(*params,**kwargs):
+   def wrapper(*args):
+       print(params[0])
+       print(params[1])
+       return args[0]
+   return wrapper
+
+
+@decorator("Execute1","Execute2","Execute3")
+def fun(*args):
+  print("fun executed {}".format(args[0]))
+  print("fun executed {}".format(args[1]))
+  print("fun executed {}".format(args[2]))
+  
+if __name__=="__main__":
+  fun(1,2,3)
+
+
+
+
+
+
+

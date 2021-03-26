@@ -1,0 +1,52 @@
+Class Decorator:
+
+class A:
+  def __init__(self,a,b):
+    self.a=a
+    self.b=b
+  def __call__(self,fun):
+    print("Executing Call')
+    def wrapper(*args):
+       print("Inside wrapper")
+       return fun(*args)
+    return wrapper
+
+@A(2,3)
+def function1(*args):
+   print("Inside function {}".format(args[0]))
+   print("Inside function {}".format(args[1]))
+   print("Inside function {}".format(args[2]))
+
+
+if __name__=="__main__":
+  function(2,3,4)
+
+
+class Decorator Example.
+
+def func(cls):
+   print("Decorating class")
+   def wrapper(*args):
+       return cls(*args)
+   return wrapper
+
+
+@func
+class A:
+  def __init__(a,b):
+     self.a=a
+     self.b=b
+  def __str__(self):
+     return "{} is a {} is b".format(self.a,self.b)
+
+if __name__=="__main__":
+   a=A(2,3)
+   print(a)
+
+
+
+
+
+
+
+
