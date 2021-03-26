@@ -1,0 +1,83 @@
+git config --global user.name "babiswas"
+git config --global user.email "babiswas@adobe.com"
+git config --list
+pwd (present working directory)
+cd ~(To get the home directory)
+ls (command to get the list of all directories).
+git init(To initiallise the GIT)
+ls -la (for viewing the hidden files)
+git add .
+git commit -m "commited file"
+git log
+git log --author=="babiswas"
+git status
+
+Adding file to folder
+
+git add "file.txt"
+git status
+git commit -m "commited file"
+
+working copy>staging area>repository
+
+git diff  (To see the changes)
+git diff  (to identify the changes)
+
+To add all the files
+
+git add .
+git add .  #add all the files
+
+git diff --staged (#read the difference in the staging area")
+
+#How to delete files?
+git rm "sixth.txt"
+git rm "Test.txt"(To remove the files from the repository)
+git rm "fourth.txt"
+
+In git moving a file is like renaming a file.
+
+git mv test.txt text2.txt
+git mv bam.txt test/
+
+
+
+#new project
+git init
+git status
+git add .
+git status
+git commit -m "commited files"
+
+
+git commit -am "xxx"(shortcut bypass staging area)
+
+-am everything in working copy is grabbed.
+
+git checkout -- "index.txt"
+This command is to undo changes.
+
+
+git remote add testgit  URLS to git
+git push -u testgit master
+
+provide username and password.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

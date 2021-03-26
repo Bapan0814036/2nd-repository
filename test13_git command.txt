@@ -1,0 +1,88 @@
+commiting changes to GIT repository
+
+git clone https://github.com/babiswas/Test_GIT.py
+cd Test_GIT
+git status
+git add -A/git add ./git add textfilename
+git status
+git commit -m "added"
+git remote add testgit https://github.com/babiswas/Test_GIT.py
+git push -u testgit master
+
+####################################################################Done############################################
+
+Branches in GIT:
+---------------
+git branch test1
+git push -u testgit test1
+git branch
+
+To commit changes to the branch.
+-----------------------------------------------------------------------------------------------------------------------------
+git clone https://github.com/babiswas/Test_GIT.git
+
+Q.What is the use of ls -la?
+
+Remove the GIT directory:
+rm -rf .git
+------------------------------------------------------------------------------------------------------------------------------
+#git init
+#git status
+#git log
+#git remote add  repo_name https://github.com/username/Folder.git
+#git push -u reponame branch
+#git branch
+#git branch newbranch
+#git add file
+#git add .
+#git add -A
+pwd(present working directory)
+#git clone url
+#git diff
+#git diff filename
+#clear
+#git clone -b test1 https://github.com/babiswas/folder.git
+pwd
+------------------------------------------------------------------------------------------------------------------------------
+#git init
+#git clone https://github.com/babiswas/folder.git
+#git init 
+#initiallise with a file readme.
+#git status
+#git clone -b branchname https://github.com/babiswas/folder.git
+#git remote add name https://github.com/babiswas/folder.git
+#git status
+#git push -u reponame branch
+#git log
+#git diff
+
+
+
+From working area to staging
+git add filename
+git add -A
+git add .
+git commit -a -m message(any changes commit)
+#do not need add command
+git config --author
+git config --global user.name
+git config --global email
+git status
+
+shif : q use when u get stuck
+git push -u reponame branch
+
+Multiple people working in the same repository
+Then pull the code to update changes
+
+git clone -b branchname https://github.com/babiswas/test_git.git
+git remote add reponame https://github.com/babiswas/test_git.git
+
+
+
+
+
+
+
+
+
